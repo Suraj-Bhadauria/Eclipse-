@@ -21,17 +21,17 @@ class DemoThread implements Runnable {
    System.out.println(name + " exiting.");
  }
 }
-
-
 class DemoJoin {
  public static void main(String args[]) {
    DemoThread ob1 = new DemoThread("One");
    DemoThread ob2 = new DemoThread("Two");
    DemoThread ob3 = new DemoThread("Three");
-   System.out.println("Thread One is alive: " + ob1.t.isAlive());
-   System.out.println("Thread Two is alive: " + ob2.t.isAlive());
-   System.out.println("Thread Three is alive: " + ob3.t.isAlive());
-                       
+   System.out.println("Thread One is alive: "
+                       + ob1.t.isAlive());
+   System.out.println("Thread Two is alive: "
+                       + ob2.t.isAlive());
+   System.out.println("Thread Three is alive: "
+                       + ob3.t.isAlive());
    // wait for threads to finish
    try {
      System.out.println("Waiting for threads to finish.");
