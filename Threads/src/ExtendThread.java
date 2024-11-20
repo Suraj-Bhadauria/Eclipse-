@@ -1,0 +1,92 @@
+//// Create a second thread by extending Thread
+//class TryThread extends Thread {
+// TryThread() {
+//   // Create a new, second thread
+//   super("Demo Thread");  //naming the thread
+//   System.out.println("Child thread: " + this);
+//   start(); // Start the thread
+// }
+// 
+// // This is the entry point for the second thread.
+// public void run() {
+//   try {
+//     for(int i = 5; i > 0; i--) {
+//       System.out.println("Child Thread: " + i);
+//       Thread.sleep(500);
+//     }
+//   } catch (InterruptedException e) {
+//     System.out.println("Child interrupted.");
+//   }
+//   System.out.println("Exiting child thread.");
+// }
+//}
+//
+class ExtendThread  {
+ public static void main(String args[]) {
+//   new TryThread(); // create a new thread // no object name given, only object is instantiated
+//   try {
+//     for(int i = 5; i > 0; i--) {
+//       System.out.println("Main Thread: " + i);
+//       Thread.sleep(1000);
+//     }
+//   } catch (InterruptedException e) {
+//     System.out.println("Main thread interrupted.");
+//   }
+//   System.out.println("Main thread exiting.");
+	 
+	 new ChildThread();
+	 try {
+			int fact = 1;
+			for(int i=2; i<=10; i++) {
+				fact*=i;
+			}
+			System.out.println("Main thread :"+fact);
+			Thread.sleep(1000);
+		}
+		catch(InterruptedException e) {
+			System.out.println("Main thread interrupted");
+		}
+		System.out.println("Main thread exiting");
+	}
+	 
+ }
+
+
+
+
+/*
+create two threads : 1) main thread 2) child thread
+both independently print factorial of 10 and 5 respectively
+ */
+
+
+class ChildThread extends Thread{
+	
+	ChildThread(){
+		super("Child thread");
+		
+		// all threads other than main thread have to be start using start()
+		// without start we can't run
+		start();
+	}
+	
+	
+	public void run() {
+		try {
+			int fact = 1;
+			for(int i=2; i<5; i++) {
+				fact*=i;
+			}
+			System.out.println(fact);
+			Thread.sleep(1000);
+		}
+		catch(InterruptedException e) {
+			System.out.println("Child interrupted");
+		}
+		System.out.println("Existing child thread");
+	}
+	
+}
+
+
+
