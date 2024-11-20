@@ -27,8 +27,6 @@ class CallerSync implements Runnable {
      target.call(msg);
    }
  }
- // Both synchronized block and use of direct synchronized keyword before method has same efficiency.
- // can use both easily
 }
 
 
